@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  postgres-search-project:
+    container_name: postgres-search-image
+    image: postgres:15.2
+    restart: always
+    environment:
+      - POSTGRES_DB=ImageDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123!@$
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./pg-google-image:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
